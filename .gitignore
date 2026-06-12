@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+.claude/
+data/
+models/
+results/
+*.log
+.venv/
+venv/
