@@ -9,14 +9,6 @@ RESULTS = os.path.join(
 )
 
 def select_features_gini(X_train, y_train, nombre_dataset):
-    """
-    Selecciona las features mas importantes usando un Random Forest de 100 arboles.
-    El criterio de importancia es Gini — mide que tan bien separa cada feature
-    las clases normal vs ataque.
-
-    Se conservan solo las features que acumulan el 95% de la importancia total.
-    Referencias: Breiman (2001), Disha y Waheed (2022).
-    """
     os.makedirs(RESULTS, exist_ok=True)
 
     rf = RandomForestClassifier(n_estimators=100, random_state=42, n_jobs=-1)
