@@ -14,19 +14,6 @@ DATA_PROC = os.path.join(
 )
 
 def full_preprocessing_pipeline(nombre_dataset):
-    """
-    Ejecuta el pipeline completo de preprocesamiento para un dataset.
-    Si los archivos procesados ya existen, los carga directamente desde disco.
-
-    Pasos:
-    1. Carga del dataset original
-    2. Limpieza (duplicados, NaN, infinitos)
-    3. Etiquetado binario (0=normal, 1=ataque)
-    4. Codificacion One-Hot (solo NSL-KDD y UNSW-NB15)
-    5. Particion estratificada 80/20 + subsampleo a 125K filas (solo CICIDS2017)
-    6. Seleccion de features por importancia Gini (Random Forest)
-    7. Normalizacion Min-Max (fit solo en train)
-    """
     os.makedirs(DATA_PROC, exist_ok=True)
 
     archivo_train = os.path.join(DATA_PROC, f'{nombre_dataset}_train.pkl')
