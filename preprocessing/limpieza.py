@@ -1,15 +1,6 @@
 import numpy as np
 
 def clean_dataset(df, nombre):
-    """
-    Limpia el dataset en tres pasos: eliminar duplicados, reemplazar infinitos
-    por NaN, y eliminar filas con valores faltantes. Al final reporta cuanto
-    se elimino y como queda la distribucion de clases.
-
-    El reporte cuantitativo (% eliminado + distribucion) es buena practica
-    documentada en la literatura de IDS para garantizar transparencia del
-    preprocesamiento (Almuhanna y Dardouri, 2025; Tavallaee et al., 2009).
-    """
     filas_iniciales = len(df)
     print(f"  [{nombre}] filas originales: {filas_iniciales}")
 
@@ -42,11 +33,6 @@ def clean_dataset(df, nombre):
     return df
 
 def binary_label(df, nombre_dataset):
-    """
-    Convierte las etiquetas originales a formato binario:
-    0 = trafico normal
-    1 = ataque (cualquier tipo)
-    """
     df = df.copy()
 
     if nombre_dataset == 'nslkdd':
@@ -65,6 +51,6 @@ def binary_label(df, nombre_dataset):
 
     elif nombre_dataset == 'unswnb15':
 
-        assert set(df['label'].unique()).issubset({0, 1}),            "UNSW-NB15: se encontraron valores distintos a 0 y 1 en la columna label"
+        assert set(df['label'].unique()).issubset({0, 1}),           
 
     return df
