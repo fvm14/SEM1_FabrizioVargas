@@ -9,15 +9,7 @@ DATA_PROC = os.path.join(
 )
 
 def normalize_minmax(X_train, X_test, nombre_dataset):
-    """
-    Escala todas las features al rango [0, 1] usando Min-Max normalization.
 
-    IMPORTANTE: el scaler aprende los parametros (min, max) SOLO del conjunto
-    de entrenamiento. Luego aplica esos mismos parametros al test.
-    Esto evita data leakage — el test no influye en el proceso de normalizacion.
-
-    Referencia: Sangoleye et al. (2024)
-    """
     os.makedirs(DATA_PROC, exist_ok=True)
 
     scaler = MinMaxScaler()
